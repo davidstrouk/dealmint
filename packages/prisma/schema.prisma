@@ -1,0 +1,75 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "./generated/client"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Deal {
+  id               String        @id @default(cuid())
+  slug             String        @unique
+  title            String
+  amount           Float
+  allowNegotiation Boolean       @default(false)
+  status           String        @default("created") // created, negotiated, paid, settling, settled
+  creatorAddress   String
+  createdAt        DateTime      @default(now())
+  updatedAt        DateTime      @updatedAt
+  
+  agreement   Agreement?
+  payments    Payment[]
+  settlements Settlement[]
+
+  @@index([slug])
+  @@index([creatorAddress])
+}
+
+model Agreement {
+  id            String   @id @default(cuid())
+  dealId        String   @unique
+  deal          Deal     @relation(fields: [dealId], references: [id], onDelete: Cascade)
+  finalAmount   Float
+  deadline      DateTime
+  mandateJson   String   // AP2-style mandate as JSON string
+  a2aTranscript String   // A2A conversation transcript as JSON string
+  createdAt     DateTime @default(now())
+
+  @@index([dealId])
+}
+
+model Payment {
+  id          String   @id @default(cuid())
+  dealId      String
+  deal        Deal     @relation(fields: [dealId], references: [id], onDelete: Cascade)
+  token       String   // e.g., "PYUSD"
+  amount      Float
+  txHash      String
+  network     String   // e.g., "sepolia"
+  explorerUrl String
+  status      String   @default("pending") // pending, confirmed, failed
+  createdAt   DateTime @default(now())
+
+  @@index([dealId])
+  @@index([txHash])
+}
+
+model Settlement {
+  id            String   @id @default(cuid())
+  dealId        String
+  deal          Deal     @relation(fields: [dealId], references: [id], onDelete: Cascade)
+  sourceNetwork String   // e.g., "sepolia"
+  destNetwork   String   // e.g., "base-sepolia"
+  destToken     String   // e.g., "USDC"
+  intentId      String   // Avail Nexus intent ID
+  status        String   @default("pending") // pending, bridging, executing, completed, failed
+  detailJson    String   // Additional details as JSON string
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  @@index([dealId])
+  @@index([intentId])
+}
+
