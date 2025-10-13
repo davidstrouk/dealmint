@@ -37,6 +37,7 @@ next-env.d.ts
 # Prisma
 packages/prisma/dev.db
 packages/prisma/dev.db-journal
+packages/prisma/generated/
 *.db
 *.db-journal
 

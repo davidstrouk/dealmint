@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation';
 import { prisma } from '@dealmint/prisma';
 import { Navbar } from '@/components/navbar';
 import { DealCheckout } from './deal-checkout';
+import type { Deal, Agreement, Payment, Settlement } from '@dealmint/core';
 
 interface DealPageProps {
   params: {
@@ -39,10 +40,10 @@ export default async function DealPage({ params }: DealPageProps) {
     <div className="min-h-screen bg-gradient-to-br from-background via-gray-900 to-background">
       <Navbar />
       <DealCheckout
-        deal={deal}
-        agreement={deal.agreement}
-        payment={deal.payments[0] || null}
-        settlement={deal.settlements[0] || null}
+        deal={deal as Deal}
+        agreement={deal.agreement as Agreement | null}
+        payment={(deal.payments[0] as Payment) || null}
+        settlement={(deal.settlements[0] as Settlement) || null}
       />
     </div>
   );
