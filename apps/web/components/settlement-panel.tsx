@@ -4,16 +4,15 @@ import { useState } from 'react';
 import { Card, CardHeader, CardTitle, CardContent } from './ui/card';
 import { Button } from './ui/button';
 import { ArrowRightLeft, CheckCircle, AlertCircle } from 'lucide-react';
-import type { Deal, Payment, Settlement } from '@dealmint/core';
+import type { Payment, Settlement } from '@dealmint/core';
 
 interface SettlementPanelProps {
-  deal: Deal;
   payment?: Payment | null;
   settlement?: Settlement | null;
   onSettle: () => Promise<void>;
 }
 
-export function SettlementPanel({ deal, payment, settlement, onSettle }: SettlementPanelProps) {
+export function SettlementPanel({ payment, settlement, onSettle }: SettlementPanelProps) {
   const [isSettling, setIsSettling] = useState(false);
 
   const handleSettle = async () => {

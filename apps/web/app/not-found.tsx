@@ -9,7 +9,7 @@ export default function NotFound() {
         <h1 className="text-6xl font-bold text-white">404</h1>
         <p className="text-2xl text-gray-300">Deal Not Found</p>
         <p className="text-gray-400">
-          The deal you're looking for doesn't exist or has been removed.
+          The deal you&apos;re looking for doesn&apos;t exist or has been removed.
         </p>
         <Link href="/">
           <Button size="lg">

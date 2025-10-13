@@ -153,7 +153,6 @@ export function DealCheckout({
 
           {/* Settlement */}
           <SettlementPanel
-            deal={deal}
             payment={payment}
             settlement={settlement}
             onSettle={handleSettle}

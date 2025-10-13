@@ -48,7 +48,7 @@ export function NegotiationPanel({ deal, agreement, onNegotiate }: NegotiationPa
         {!agreement ? (
           <div className="space-y-4">
             <p className="text-gray-600">
-              Let our AI agents negotiate the best terms for this deal. They'll apply early payment and bulk discounts automatically.
+              Let our AI agents negotiate the best terms for this deal. They&apos;ll apply early payment and bulk discounts automatically.
             </p>
             <Button
               onClick={handleNegotiate}
@@ -93,7 +93,7 @@ export function NegotiationPanel({ deal, agreement, onNegotiate }: NegotiationPa
               </button>
               {showTranscript && parsedAgreement && (
                 <div className="mt-4 space-y-2">
-                  {parsedAgreement.transcript.messages.map((msg: any, idx: number) => (
+                  {parsedAgreement.transcript.messages.map((msg: { from: string; content: { message: string } }, idx: number) => (
                     <div
                       key={idx}
                       className={`p-3 rounded-lg ${
