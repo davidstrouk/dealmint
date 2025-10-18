@@ -1,16 +1,21 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #10B981;
+  --color-primary-dark: #059669;
+  --color-primary-light: #34D399;
+  --color-background: #0B1220;
+  --color-surface: #F8FAFC;
+  --color-surface-dark: #1E293B;
+  --color-accent: #34D399;
+  --color-danger: #EF4444;
+  --color-warning: #F59E0B;
+  --color-success: #10B981;
+  
+  --font-family-sans: Inter, system-ui, sans-serif;
+}
 
 @layer base {
-  :root {
-    --primary: #10B981;
-    --primary-dark: #059669;
-    --primary-light: #34D399;
-    --background: #0B1220;
-    --surface: #F8FAFC;
-  }
-
   body {
     @apply bg-background text-gray-900;
   }
