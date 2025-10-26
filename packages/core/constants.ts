@@ -101,6 +101,14 @@ export const APP_CONFIG = {
   name: "DealMint",
   tagline: "Negotiate, mint the mandate, and settle anywhere.",
   url: process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000",
+  version: "1.0.0",
+} as const;
+
+// API configuration
+export const API_CONFIG = {
+  timeout: 30000, // 30 seconds
+  retryAttempts: 3,
+  retryDelay: 1000, // 1 second
 } as const;
 
 // Theme colors
