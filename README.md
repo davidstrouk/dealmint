@@ -40,23 +40,50 @@ A negotiation-first, on-chain checkout application built for ETHOnline 2025. Dea
 
 ## 🏗️ Architecture
 
+DealMint follows a monorepo architecture with clear separation of concerns:
+
 ```
 dealmint/
 ├── apps/
 │   └── web/                 # Next.js 14 (App Router) + Tailwind + TypeScript
 │       ├── app/
 │       │   ├── api/         # Backend API routes
-│       │   ├── d/[slug]/    # Deal checkout page
-│       │   └── new/         # Create deal form
-│       └── components/      # React components
+│       │   │   ├── deals/   # Deal CRUD operations
+│       │   │   ├── negotiations/ # A2A negotiation endpoints
+│       │   │   ├── pay/     # PYUSD payment handlers
+│       │   │   └── settle/  # Avail Nexus settlement
+│       │   ├── d/[slug]/    # Deal checkout page (dynamic routing)
+│       │   ├── new/         # Create deal form
+│       │   └── page.tsx     # Homepage
+│       ├── components/      # React components
+│       │   ├── ui/          # Reusable UI components
+│       │   ├── negotiation-panel.tsx
+│       │   ├── payment-panel.tsx
+│       │   └── settlement-panel.tsx
+│       └── lib/             # Utility functions & configs
 ├── packages/
 │   ├── core/                # Shared business logic
 │   │   ├── negotiation/     # Negotiation engine & mandate generator
+│   │   │   ├── engine.ts    # A2A protocol implementation
+│   │   │   └── mandate-generator.ts # AP2 mandate creation
 │   │   ├── nexus/           # Avail Nexus SDK wrapper
-│   │   └── types/           # TypeScript types (A2A, AP2)
-│   └── prisma/              # Database schema & client
+│   │   │   └── client.ts    # Cross-chain bridge client
+│   │   ├── types/           # TypeScript types (A2A, AP2)
+│   │   └── constants.ts     # Shared constants & configs
+│   └── prisma/              # Database layer
+│       ├── schema.prisma    # Database schema
+│       ├── seed.ts          # Seed data
+│       └── generated/       # Generated Prisma client
 └── package.json             # Monorepo root
 ```
+
+### Key Design Principles
+
+- **Monorepo Structure**: Using pnpm workspaces for code sharing
+- **Type Safety**: Strict TypeScript throughout the codebase
+- **API-First**: Clean separation between frontend and backend
+- **Protocol-Driven**: Following A2A and AP2 standards
+- **Chain-Agnostic**: Built for multi-chain operations via Avail Nexus
 
 ## 🎯 How We Use PYUSD (PayPal Prize)
 
