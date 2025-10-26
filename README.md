@@ -10,6 +10,20 @@ A negotiation-first, on-chain checkout application built for ETHOnline 2025. Dea
 
 ![DealMint](https://via.placeholder.com/1200x400/10B981/FFFFFF?text=DealMint)
 
+## 📑 Table of Contents
+
+- [Features](#-features)
+- [Architecture](#-architecture)
+- [PYUSD Integration](#-how-we-use-pyusd-paypal-prize)
+- [Avail Nexus Integration](#-how-we-use-avail-nexus-avail-prize)
+- [A2A Protocol](#-a2a-protocol-explanation)
+- [AP2 Payment Mandate](#-ap2-payment-mandate-explanation)
+- [Getting Started](#-getting-started)
+- [Usage Guide](#-usage-guide)
+- [Tech Stack](#-tech-stack)
+- [Testing](#-testing)
+- [Deployment](#-deployment)
+
 ## 🌟 Features
 
 - **AI Agent Negotiation**: Automated A2A protocol-based negotiation between buyer and seller agents
