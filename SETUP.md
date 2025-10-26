@@ -74,6 +74,7 @@ Visit http://localhost:3000
 ### PYUSD on Sepolia
 
 For testing purposes, you can:
+
 1. Check [PayPal developer documentation](https://developer.paypal.com/docs/multiparty/checkout/advanced/pyusd/) for test tokens
 2. Use a PYUSD faucet if available
 3. Deploy a mock ERC-20 token for local testing

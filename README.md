@@ -105,15 +105,15 @@ DealMint leverages **PayPal USD (PYUSD)** as the primary payment token for on-ch
 
 ```typescript
 // Payment execution in PaymentPanel.tsx
-import { useWriteContract } from 'wagmi';
-import { parseUnits } from 'viem';
+import { useWriteContract } from "wagmi";
+import { parseUnits } from "viem";
 
 const { writeContract } = useWriteContract();
 
 // Execute PYUSD payment
 const executePyusdPayment = async () => {
   const amountInWei = parseUnits(amount.toString(), 6); // PYUSD has 6 decimals
-  
+
   writeContract({
     address: PYUSD_ADDRESSES.sepolia,
     abi: ERC20_ABI,
@@ -405,24 +405,29 @@ DealMint is a hackathon project. For production use, consider these security enh
 ### Common Issues
 
 #### `pnpm install` fails
+
 - **Solution**: Make sure you're using Node.js 18+ and pnpm 8+
 - Run `node --version` and `pnpm --version` to check
 
 #### Database connection error
+
 - **Solution**: Ensure your `DATABASE_URL` is correctly set in `.env.local`
 - Try deleting `dev.db` and running `pnpm db:push` again
 
 #### Wallet connection issues
+
 - **Solution**: Make sure you're on the correct network (Sepolia)
 - Clear your browser cache and reconnect wallet
 - Check that your wallet has ETH for gas fees
 
 #### PYUSD transfer fails
+
 - **Solution**: Verify you have PYUSD tokens in your wallet
 - Get test PYUSD from [PayPal faucet](https://faucet.circle.com)
 - Ensure you have ETH for gas fees on Sepolia
 
 #### Avail Nexus bridge not working
+
 - **Solution**: Check your `NEXUS_API_KEY` is valid
 - Verify both source and destination chains are supported
 - Check intent status at Avail Nexus dashboard
@@ -453,6 +458,7 @@ vercel --prod
 ### Environment Setup
 
 1. **Set Environment Variables** in Vercel dashboard:
+
    - `DATABASE_URL` - PostgreSQL connection string (use Vercel Postgres)
    - `NEXT_PUBLIC_PYUSD_ADDRESS` - PYUSD contract address
    - `NEXT_PUBLIC_CHAIN_ID` - Chain ID (11155111 for Sepolia)
@@ -462,6 +468,7 @@ vercel --prod
    - `NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID` - WalletConnect project ID
 
 2. **Database Migration**:
+
    - Replace SQLite with PostgreSQL in production
    - Run `pnpm db:push` to apply schema
    - Optionally seed with `pnpm db:seed`
