@@ -357,6 +357,21 @@ pnpm db:studio
 pnpm test:all
 ```
 
+## 🔒 Security Considerations
+
+DealMint is a hackathon project. For production use, consider these security enhancements:
+
+- **Private Keys**: Never commit private keys or sensitive credentials
+- **Environment Variables**: Use secure secret management (e.g., Vercel env, AWS Secrets Manager)
+- **Input Validation**: Validate all user inputs and API responses
+- **Smart Contract Audits**: Audit any custom smart contracts before mainnet deployment
+- **Rate Limiting**: Implement rate limiting on API endpoints
+- **CORS Configuration**: Configure CORS appropriately for production
+- **Database Security**: Use connection pooling and prepared statements (Prisma handles this)
+- **Wallet Integration**: Follow best practices for wallet connection and transaction signing
+
+> ⚠️ **Important:** This is a testnet implementation. Additional security measures are required for mainnet deployment.
+
 ## 🔧 Troubleshooting
 
 ### Common Issues
