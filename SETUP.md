@@ -2,6 +2,8 @@
 
 Quick setup instructions for getting DealMint running locally.
 
+⏱️ **Estimated setup time:** 10-15 minutes
+
 ## Prerequisites
 
 - Node.js 18+ installed
