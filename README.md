@@ -23,6 +23,7 @@ A negotiation-first, on-chain checkout application built for ETHOnline 2025. Dea
 - [Tech Stack](#-tech-stack)
 - [Database Schema](#-database-schema)
 - [Testing](#-testing)
+- [Security Considerations](#-security-considerations)
 - [Troubleshooting](#-troubleshooting)
 - [Deployment](#-deployment)
 - [Contributing](#-contributing)
