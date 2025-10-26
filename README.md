@@ -333,7 +333,43 @@ pnpm lint
 
 # Database studio
 pnpm db:studio
+
+# Run all checks
+pnpm test:all
 ```
+
+## 🔧 Troubleshooting
+
+### Common Issues
+
+#### `pnpm install` fails
+- **Solution**: Make sure you're using Node.js 18+ and pnpm 8+
+- Run `node --version` and `pnpm --version` to check
+
+#### Database connection error
+- **Solution**: Ensure your `DATABASE_URL` is correctly set in `.env.local`
+- Try deleting `dev.db` and running `pnpm db:push` again
+
+#### Wallet connection issues
+- **Solution**: Make sure you're on the correct network (Sepolia)
+- Clear your browser cache and reconnect wallet
+- Check that your wallet has ETH for gas fees
+
+#### PYUSD transfer fails
+- **Solution**: Verify you have PYUSD tokens in your wallet
+- Get test PYUSD from [PayPal faucet](https://faucet.circle.com)
+- Ensure you have ETH for gas fees on Sepolia
+
+#### Avail Nexus bridge not working
+- **Solution**: Check your `NEXUS_API_KEY` is valid
+- Verify both source and destination chains are supported
+- Check intent status at Avail Nexus dashboard
+
+### Getting Help
+
+- Check the [demo.md](./demo.md) for a complete walkthrough
+- Open an issue on GitHub for bugs or feature requests
+- Review the transaction on block explorer if payment/settlement fails
 
 ## 🚢 Deployment
 
