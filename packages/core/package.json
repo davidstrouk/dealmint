@@ -1,6 +1,7 @@
 {
   "name": "@dealmint/core",
   "version": "1.0.0",
+  "description": "Core business logic for DealMint including A2A negotiation and Avail Nexus integration",
   "private": true,
   "main": "./index.ts",
   "types": "./index.ts",
