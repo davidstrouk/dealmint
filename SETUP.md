@@ -12,6 +12,8 @@ Quick setup instructions for getting DealMint running locally.
 
 ## Installation Steps
 
+> 💡 **Tip:** Follow these steps in order for a smooth setup experience.
+
 ### 1. Clone and Install
 
 ```bash
@@ -71,7 +73,12 @@ Visit http://localhost:3000
 
 ### PYUSD on Sepolia
 
-Check PayPal developer documentation or deploy a mock ERC-20 token for testing.
+For testing purposes, you can:
+1. Check [PayPal developer documentation](https://developer.paypal.com/docs/multiparty/checkout/advanced/pyusd/) for test tokens
+2. Use a PYUSD faucet if available
+3. Deploy a mock ERC-20 token for local testing
+
+> ⚠️ **Note:** PYUSD testnet faucets may have limited availability.
 
 ### Base Sepolia ETH
 
