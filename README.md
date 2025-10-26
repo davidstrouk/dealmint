@@ -223,11 +223,16 @@ const { intentId } = await nexusService.bridgeAndExecute({
 
 ### Prerequisites
 
-- Node.js 18+
-- pnpm 8+
-- Git
+Before you begin, ensure you have the following installed:
+
+- **Node.js** 18+ ([Download](https://nodejs.org/))
+- **pnpm** 8+ ([Install](https://pnpm.io/installation))
+- **Git** ([Download](https://git-scm.com/downloads))
+- **MetaMask** or compatible Web3 wallet
 
 ### Installation
+
+Follow these steps to set up the project locally:
 
 ```bash
 # Clone the repository
