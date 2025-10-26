@@ -73,12 +73,22 @@ DealMint leverages **PayPal USD (PYUSD)** as the primary payment token for on-ch
 
 ```typescript
 // Payment execution in PaymentPanel.tsx
-writeContract({
-  address: PYUSD_ADDRESSES.sepolia,
-  abi: ERC20_ABI,
-  functionName: "transfer",
-  args: [recipientAddress, amountInPyusd],
-});
+import { useWriteContract } from 'wagmi';
+import { parseUnits } from 'viem';
+
+const { writeContract } = useWriteContract();
+
+// Execute PYUSD payment
+const executePyusdPayment = async () => {
+  const amountInWei = parseUnits(amount.toString(), 6); // PYUSD has 6 decimals
+  
+  writeContract({
+    address: PYUSD_ADDRESSES.sepolia,
+    abi: ERC20_ABI,
+    functionName: "transfer",
+    args: [recipientAddress, amountInWei],
+  });
+};
 ```
 
 ### Why PYUSD?
