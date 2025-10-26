@@ -1,5 +1,9 @@
 # DealMint
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue.svg)](https://www.typescriptlang.org/)
+[![Next.js](https://img.shields.io/badge/Next.js-14-black.svg)](https://nextjs.org/)
+
 > **Negotiate, mint the mandate, and settle anywhere.**
 
 A negotiation-first, on-chain checkout application built for ETHOnline 2025. DealMint combines AI agent negotiation with PYUSD payments and Avail Nexus cross-chain settlement.
