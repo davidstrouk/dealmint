@@ -410,19 +410,45 @@ DealMint is a hackathon project. For production use, consider these security enh
 
 ### Vercel (Recommended)
 
+DealMint is optimized for deployment on Vercel:
+
 ```bash
 # Install Vercel CLI
 npm i -g vercel
 
-# Deploy
+# Login to your account
+vercel login
+
+# Deploy to production
 vercel --prod
 ```
 
 ### Environment Setup
 
-1. Set all environment variables in Vercel dashboard
-2. Connect PostgreSQL database (replace SQLite in production)
-3. Deploy
+1. **Set Environment Variables** in Vercel dashboard:
+   - `DATABASE_URL` - PostgreSQL connection string (use Vercel Postgres)
+   - `NEXT_PUBLIC_PYUSD_ADDRESS` - PYUSD contract address
+   - `NEXT_PUBLIC_CHAIN_ID` - Chain ID (11155111 for Sepolia)
+   - `NEXT_PUBLIC_SEPOLIA_RPC_URL` - RPC endpoint
+   - `NEXT_PUBLIC_BASE_SEPOLIA_RPC_URL` - Base RPC endpoint
+   - `NEXUS_API_KEY` - Avail Nexus API key
+   - `NEXT_PUBLIC_WALLETCONNECT_PROJECT_ID` - WalletConnect project ID
+
+2. **Database Migration**:
+   - Replace SQLite with PostgreSQL in production
+   - Run `pnpm db:push` to apply schema
+   - Optionally seed with `pnpm db:seed`
+
+3. **Build and Deploy**:
+   - Vercel automatically builds on git push
+   - Monitor deployment logs for any issues
+
+### Alternative Deployment Options
+
+- **Docker**: Create a Dockerfile for containerized deployment
+- **AWS**: Deploy using AWS Amplify or Elastic Beanstalk
+- **Railway**: One-click deploy with automatic PostgreSQL setup
+- **Self-hosted**: Use `pnpm build` and `pnpm start` on your server
 
 ## 🤝 Contributing
 
